@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import './Main.css';
 import { assets } from "../../assets/assets";
-import { Context } from "../../context/context";
+import { Context } from "../../context/Context";
 
 const Main = () => {
     const { onSent, recentPrompt, showResult, loading, resultData, setInput, input } = useContext(Context);
@@ -74,7 +74,12 @@ const Main = () => {
                         <div>
                             <img src={assets.gallery_icon} alt="" />
                             <img src={assets.mic_icon} alt="" />
-                            <img src={assets.send_icon} alt="" onClick={() => onSent()} />
+                            {
+                                input ?
+                                <img src={assets.send_icon} alt="" onClick={() => onSent()} />
+                                    :
+                                    null
+                            }
                         </div>
                     </div>
                     <p className="bottom-info">
